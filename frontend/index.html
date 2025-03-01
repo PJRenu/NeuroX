@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroX - Brain Progression Visualization</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>NeuroX</h1>
+            <h2>Advanced Brain Progression Visualization</h2>
+        </header>
+        
+        <main>
+            <div class="input-section">
+                <h3>Initial Input & Analysis</h3>
+                <form id="uploadForm">
+                    <div class="form-section">
+                        <label for="scanFile">Upload 2D Brain Scan:</label>
+                        <input type="file" id="scanFile" name="scanFile" accept=".jpg,.jpeg,.png,.dicom,.dcm">
+                    </div>
+                    
+                    <div class="form-group">
+                        <h4>Key Factors</h4>
+                        <div class="factor-inputs">
+                            <div class="factor">
+                                <label for="age">Age:</label>
+                                <input type="number" id="age" name="age" min="18" max="120" value="65">
+                            </div>
+                            <div class="factor">
+                                <label for="genetic_markers">Genetic Risk Score (0-100):</label>
+                                <input type="number" id="genetic_markers" name="genetic_markers" min="0" max="100" value="45">
+                            </div>
+                            <div class="factor">
+                                <label for="brain_metrics">Brain Volume Score (0-100):</label>
+                                <input type="number" id="brain_metrics" name="brain_metrics" min="0" max="100" value="75">
+                            </div>
+                            <div class="factor">
+                                <label for="biomarkers">Biomarker Risk Score (0-100):</label>
+                                <input type="number" id="biomarkers" name="biomarkers" min="0" max="100" value="50">
+                            </div>
+                            <div class="factor">
+                                <label for="cognitive_scores">Cognitive Assessment Score (0-100):</label>
+                                <input type="number" id="cognitive_scores" name="cognitive_scores" min="0" max="100" value="80">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="analyzeBtn">Analyze Brain</button>
+                </form>
+            </div>
+            
+            <div class="results-container hidden" id="resultsContainer">
+                <div class="visualization-section">
+                    <h3>3D Brain Visualization</h3>
+                    <div class="controls">
+                        <div class="scenario-toggle">
+                            <label>
+                                <input type="radio" name="scenario" value="a" checked> Scenario A (Typical)
+                            </label>
+                            <label>
+                                <input type="radio" name="scenario" value="b"> Scenario B (Accelerated)
+                            </label>
+                        </div>
+                        
+                        <div class="time-slider-container">
+                            <label for="timeSlider">Time Progression:</label>
+                            <input type="range" id="timeSlider" min="0" max="15" value="0" step="1">
+                            <span id="timeLabel">Current</span>
+                        </div>
+                    </div>
+                    
+                    <div id="brainModelContainer"></div>
+                    
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="color-box healthy"></div>
+                            <span>Healthy Tissue</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box mild"></div>
+                            <span>Mild Degeneration</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box moderate"></div>
+                            <span>Moderate Degeneration</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box severe"></div>
+                            <span>Severe Degeneration</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="treatment-section">
+                    <h3>Treatment Optimization</h3>
+                    <div id="treatmentPlan"></div>
+                    
+                    <div class="treatment-impact">
+                        <h4>Treatment Impact Visualization</h4>
+                        <div class="toggle-container">
+                            <label>
+                                <input type="checkbox" id="showTreatmentEffect" checked> Show Treatment Effect
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-section">
+                    <h3>Comparative Timeline</h3>
+                    <div class="timeline-toggle">
+                        <label>
+                            <input type="radio" name="timelineScenario" value="a" checked> Scenario A (Typical)
+                        </label>
+                        <label>
+                            <input type="radio" name="timelineScenario" value="b"> Scenario B (Accelerated)
+                        </label>
+                    </div>
+                    <canvas id="timelineChart"></canvas>
+                </div>
+                
+                <div class="clinical-reasoning">
+                    <h3>Clinical Reasoning</h3>
+                    <div id="clinicalReasoningContainer"></div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>NeuroX - Advanced Neurological Progression Visualization System</p>
+        </footer>
+    </div>
+    
+    <script src="js/brain-model.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

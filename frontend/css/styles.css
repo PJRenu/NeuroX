@@ -1,0 +1,259 @@
+/* styles.css */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #34495e;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
+h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+h4 {
+    margin: 15px 0 10px;
+    color: var(--dark-color);
+}
+
+.input-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.factor-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.factor {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--dark-color);
+}
+
+input[type="file"] {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px dashed var(--secondary-color);
+    border-radius: 4px;
+    width: 100%;
+}
+
+input[type="number"] {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.results-container {
+    margin-top: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+.visualization-section, .treatment-section, .timeline-section, .clinical-reasoning {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.scenario-toggle, .timeline-toggle {
+    display: flex;
+    gap: 15px;
+}
+
+.time-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#timeSlider {
+    width: 200px;
+}
+
+#brainModelContainer {
+    height: 400px;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+}
+
+.color-box.healthy {
+    background-color: #c6dbef;
+}
+
+.color-box.mild {
+    background-color: #6baed6;
+}
+
+.color-box.moderate {
+    background-color: #3182bd;
+}
+
+.color-box.severe {
+    background-color: #08519c;
+}
+
+.treatment-impact {
+    margin-top: 20px;
+}
+
+.toggle-container {
+    margin: 10px 0;
+}
+
+#treatmentPlan {
+    padding: 15px;
+    background-color: var(--light-color);
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+#timelineChart {
+    width: 100%;
+    height: 300px;
+    margin-top: 20px;
+}
+
+#clinicalReasoningContainer {
+    padding: 15px;
+    background-color: var(--light-color);
+    border-radius: 6px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: var(--dark-color);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .factor-inputs {
+        grid-template-columns: 1fr;
+    }
+    
+    #brainModelContainer {
+        height: 300px;
+    }
+}
